@@ -21,14 +21,8 @@ func SignUrl(secretKey string, fullUrl string) string {
 	h := hmac.New(sha1.New, key)
 	h.Write([]byte(urlToSign))
 
-	return base64.URLEncoding.EncodeToString(h.Sum(nil))
+
+	signedUrl := fullUrl + "&signature=" + base64.URLEncoding.EncodeToString(h.Sum(nil))
+
+	return signedUrl
 }
-
-// func main() {
-// 	// Using sample secret key from Google Maps API documentation
-// 	secretKey := "chaRF2hTJKOScPr-RQCEhZbSzIE="
-// 	fullUrl := "http://maps.googleapis.com/maps/api/geocode/json?client=gme-test123"
-
-// 	signedUrl := fullUrl + "&signature=" + SignUrl(secretKey, fullUrl)
-// 	fmt.Println("Signed Url: " + signedUrl)
-// }
