@@ -1,10 +1,9 @@
-package main
+package gmapsSigner
 
 import (
 	"crypto/sha1"
 	"crypto/hmac"
     "encoding/base64"
-	"fmt"
 	"log"
 	"net/url"
 )
@@ -25,12 +24,11 @@ func SignUrl(secretKey string, fullUrl string) string {
 	return base64.URLEncoding.EncodeToString(h.Sum(nil))
 }
 
-func main() {
-	secretKey := "chaRF2hTJKOScPr-RQCEhZbSzIE="
-	fullUrl := "http://maps.googleapis.com/maps/api/geocode/json?client=gme-test123"
+// func main() {
+// 	// Using sample secret key from Google Maps API documentation
+// 	secretKey := "chaRF2hTJKOScPr-RQCEhZbSzIE="
+// 	fullUrl := "http://maps.googleapis.com/maps/api/geocode/json?client=gme-test123"
 
-	fmt.Println("Url to sign: " + fullUrl)
-
-	signedUrl := fullUrl + "&signature=" + SignUrl(secretKey, fullUrl)
-	fmt.Println("Signed Url: " + signedUrl)
-}
+// 	signedUrl := fullUrl + "&signature=" + SignUrl(secretKey, fullUrl)
+// 	fmt.Println("Signed Url: " + signedUrl)
+// }
