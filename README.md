@@ -1,5 +1,5 @@
 # gmapsSigner
-Go package for signing Google Maps for Work requests use the client secret key
+Go package for signing Google Maps for Work requests using the client secret key
 
 Example usage:
 
